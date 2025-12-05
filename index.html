@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UTC Clock + Solar Times</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+
+  <header id="gpsRow" class="row">
+    <div id="utcDate">2000-01-01</div>
+    <div id="latVal">--°--.--'N</div>
+    <div id="lonVal">---°---.--'W</div>
+  </header>
+
+  <main id="mainContent" class="main">
+    <article id="utcContent" class="article">
+
+      <!-- UTC Clock (fills) -->
+      <section id="utcSec" class="section">
+        <div class="stack">
+          <div id="utcClock">00:00:00</div>
+          <div class="label">UTC</div>
+        </div>
+      </section>
+
+      <!-- Sun Times in UTC (wraps) -->
+      <section id="sunUtcSec" class="section">
+        <div id="sunUtcRow" class="row">
+          <div class="stack"><div class="value" id="sunriseUTC">--:--</div><div class="label">SUNRISE</div></div>
+          <div class="stack"><div class="value" id="noonUTC">--:--</div><div class="label">NOON</div></div>
+          <div class="stack"><div class="value" id="sunsetUTC">--:--</div><div class="label">SUNSET</div></div>
+          <div class="stack"><div class="value" id="noonOffUTC">±--:--</div><div class="label">LHA</div></div>
+        </div>
+      </section>
+
+    </article>
+
+    <article id="localContent" class="article">
+
+      <!-- Local Time (fills) -->
+      <section id="localSec" class="section">
+        <div id="localRow" class="row">
+          <div class="stack">
+            <div id="localTime">00:00</div>
+            <div class="label">LOCAL</div>
+          </div>
+          <div class="stack">
+            <div class="row">
+              <span id="localOffset">±00:00</span>
+              <span id="btnStack" class="stack">
+                <div id="btnPlus" class="btn centered" aria-label="Increase offset">⊕</div>
+                <div id="btnMinus" class="btn centered" aria-label="Decrease offset">⊖</div>
+              </span>
+            </div>
+            <div class="label">UTC OFFSET</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sun Times in Local (wraps) -->
+      <section id="sunLocalSec" class="section">
+        <div id="sunLocalRow" class="row">
+          <div class="stack"><div class="value" id="sunriseLocal">--:--</div><div class="label">SUNRISE</div></div>
+          <div class="stack"><div class="value" id="noonLocal">--:--</div><div class="label">NOON</div></div>
+          <div class="stack"><div class="value" id="sunsetLocal">--:--</div><div class="label">SUNSET</div></div>
+        </div>
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- Status footer (wraps) -->
+  <footer id="statusBar">
+    <div id="statusText" class="warn">Requesting position</div>
+    <div id="statusHint"><button id="fsToggleBtn">Fullscreen f/ESC</button></div>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/signalk.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
